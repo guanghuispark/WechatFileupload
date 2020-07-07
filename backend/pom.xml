@@ -1,0 +1,96 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.backend</groupId>
+  <artifactId>uploadfile</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+  <name>uploadfile</name>
+  <description>uploadfile</description>
+  
+    
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.9.RELEASE</version>
+        
+    </parent>
+
+    <dependencies>
+    	<dependency>
+    		<groupId>com.alibaba</groupId>
+    		<artifactId>fastjson</artifactId>
+    		<version>1.2.4</version>
+		</dependency>
+	
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        
+	    <dependency>
+		      <groupId>junit</groupId>
+		      <artifactId>junit</artifactId>
+		      <version>3.8.1</version>
+		      <scope>test</scope>
+	    </dependency>
+	    
+	    <dependency>
+		      <groupId>commons.io</groupId>
+		      <artifactId>commons-io-2.6</artifactId>
+		      <version>1.0</version>
+		      <scope>system</scope>
+		      <systemPath>${project.basedir}/lib/commons-io-2.6.jar</systemPath>
+	    </dependency>
+	    <dependency>
+		      <groupId>commons.lang3</groupId>
+		      <artifactId>commons-lang3-3.10</artifactId>
+		      <version>1.0</version>
+		      <scope>system</scope>
+		      <systemPath>${project.basedir}/lib/commons-lang3-3.10.jar</systemPath>
+	    </dependency>
+	    <dependency>
+		      <groupId>mysql.connector</groupId>
+		      <artifactId>mysql-connector-java</artifactId>
+		      <version>1.0</version>
+		      <scope>system</scope>
+		      <systemPath>${project.basedir}/lib/mysql-connector-java-8.0.20.jar</systemPath>
+	    </dependency>
+
+    </dependencies>
+
+    <properties>
+        <java.version>1.8</java.version>
+    </properties>
+
+
+    <build>
+    
+    <resources>
+        <resource>
+            <directory>lib</directory>
+            <targetPath>BOOT-INF/lib/</targetPath>
+            <includes>
+                <include>**/*.jar</include>
+            </includes>
+        </resource>
+        <resource>
+            <directory>src/main/resources</directory>
+            <targetPath>BOOT-INF/classes/</targetPath>
+        </resource>
+    	</resources>
+    
+    <plugins>
+
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+            <configuration>
+                <mainClass>com.backend.uploadfile.Application</mainClass>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
+  
+  
+  
+</project>

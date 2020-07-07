@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: uploadfile
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: worlf
+Implementation-Vendor-Id: com.backend
+Build-Jdk: 1.8.0_191
+Implementation-URL: http://projects.spring.io/spring-boot/uploadfile/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+Class-Path: lib/commons-io-2.6.jar lib/commons-lang3-3.10.jar lib/mysql-connector-java-8.0.20.jar
+Main-Class: com.backend.uploadfile.Application

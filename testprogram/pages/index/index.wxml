@@ -1,0 +1,163 @@
+<!--index.wxml-->
+<view wx:if="{{isHide}}">
+	<view wx:if="{{canIUse}}">
+		<view class='header'>
+			<image src='../../image/q.png'></image>
+		</view>
+
+		<view class='content'>
+			<view>申请获取以下权限</view>
+			<text >获得你的公开信息(昵称，头像等)</text>
+		</view>
+
+		<button class='query-botton' type='primary' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">
+			授权登录
+		</button>
+	</view>
+	<view wx:else>请升级微信版本</view>
+</view>
+<view wx:else class="userinfo">
+	<image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+	<text class="userinfo-nickname">{{userInfo.nickName}}</text>
+	<view class="questionnaire">
+		<form bindsubmit="formSubmit">
+			<view class="question-card">
+				<text class="question"><text class="order">01 </text>学号:<text class="mark">（必填）</text></text>
+				<view class="answer">
+					<view class="input-block">
+						<input name="studentid"  type="number" placeholder="请填写" value="{{form.number}}" class="input-text"   />
+					</view>
+				</view>
+			</view>
+			<view class="question-card">
+				<text class="question"><text class="order">02 </text>姓名:<text class="mark">（必填）</text></text>
+				<view class="answer">
+					<view class="input-block">
+						<input name="studentname" class="input-text"value="{{form.name}}" placeholder="请填写"  />
+					</view>
+				</view>
+			</view>
+			<view class="question-card">
+				<text class="question"><text class="order">03 </text>您的手机:<text class="mark">（必填）</text></text>
+				<view class="answer">
+					<view class="input-block">
+						<input name="phonenumber" type="number"value="{{form.phoneNumber}}" placeholder="请填写" class="input-text" />
+					</view>
+				</view>
+			</view>
+			<view class="question-card">
+				<text class="question"><text class="order">04 </text>毕业实习总体情况:<text class="mark">（必填）</text></text>
+				<view class="answer">
+					<radio-group class="radio-group" name="totalstatusselect" bindchange="radioChange">
+						<label class="radio" wx:for="{{statuses}}" wx:key="value">
+							<radio value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+						</label>
+					</radio-group>
+					<view class="input-block">
+						其他
+						<input name="totalstatus"value="{{form.sitution}}" class="input-text" bindfocus="startInput"  />
+					</view>
+				</view>
+			</view>
+			<view class="question-card">
+				<text class="question"><text class="order">05 </text>最近一段实习-公司名称:</text>
+				<view>
+					<text class="hint">最近完成的一段实习，或正在进行的一段实习，或即将开始的一段实习。校内实习填写“校内-项目组或导师名”</text>
+				</view>
+				<view class="answer">
+					<view class="input-block">
+						<input name="company" type="text" value="{{form.companyname}}" placeholder="请填写" class="input-text"   />
+					</view>
+				</view>
+			</view>
+			<view class="question-card">
+				<text class="question"><text class="order">06 </text>最近一段实习-是否签订实习基地协议:</text>
+				<view>
+					<text class="hint">如果没有签订基地协议，请选择其他，并在后面填写原因，如没有如期完成实习，公司不愿意等，无法盖章等</text>
+				</view>
+				<view class="answer">
+					<radio-group class="radio-group" name="issignedselect" bindchange="radioChange">
+						<label class="radio" wx:for="{{isSigned}}" wx:key="value">
+							<radio value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+						</label>
+					</radio-group>
+					<view class="input-block">
+						其他
+						<input id="test" name="issigned" value="{{form.agreement}}" type="text"  class="input-text" bindfocus="checkSigned"  />
+					</view>
+				</view>
+			</view>
+			<view class="question-card">
+				<text class="question"><text class="order">07 </text>最近的一段实习-实习协议上的起止日期（月/日-月/日）</text>
+				<view>
+					<text class="hint">最近完成的一段实习，或者正在进行的一段实习，或即将开始的一段实习。格式月/日-月/日。如10/3-5/1</text>
+				</view>
+				<view class="answer">
+					<view class="input-block">
+						<input name="time" type="text" value="{{form.plandate}}" placeholder="请填写" class="input-text" />
+					</view>
+				</view>
+			</view>
+			<view class="question-card">
+				<text class="question"><text class="order">08 </text>最近的一段实习-实际完成的起止日期（月/日-月/日）</text>
+				<view>
+					<text class="hint">如果与“第7问”相同，可填写“同协议”，否则，填入实际的实习时间起止日期，格式月/日-月/日，如10/3-5/1</text>
+				</view>
+				<view class="answer">
+					<view class="input-block">
+						<input name="realtime" type="text" value="{{form.realdate}}" placeholder="请填写" class="input-text"  />
+					</view>
+				</view>
+			</view>
+			<view class="question-card">
+				<text class="question"><text class="order">09 </text>最近的一段实习-总周数</text>
+				<view>
+					<text class="hint">按照实际完成的最近一段实习填写。该段实习一共完成的周数。即“第8问”起止日期计算得到的周数。</text>
+				</view>
+				<view class="answer">
+					<view class="input-block">
+						<input name="weeknumber" type="number" value="{{form.sumdate}}" placeholder="请填写" class="input-text"  />
+					</view>
+				</view>
+			</view>
+			<view class="question-card">
+				<text class="question"><text class="order">10 </text>最近的一段实习-工作描述（200字以内）</text>
+				<view>
+					<text class="hint">需要填写：所在部门，工作导师（Mentor），工作内容，效果等。</text>
+				</view>
+				<view class="answer">
+					<view class="input-block">
+						<input name="description" type="text" value="{{form.describe}}" placeholder="请填写" class="input-text" />
+					</view>
+				</view>
+			</view>
+			<view class="question-card">
+				<text class="question"><text class="order">11 </text>是否还有其他实习？请描述实际时间，总周数，工作内容等:</text>
+				<view class="answer">
+					<view class="input-block">
+						<input name="remakes"  type="text" value="{{form.remakes}}" placeholder="请填写" class="input-text"  />
+					</view>
+				</view>
+			</view>
+			<view class="btn-area">
+				<button formType="submit">提交</button>
+			</view>
+		</form>
+	</view>
+	<button bindtap="startUpload" class="button">上传文件</button>
+</view>
+<!-- <view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+     
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      <button bindtap="startUpload" class="button">上传文件</button>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+</view> -->

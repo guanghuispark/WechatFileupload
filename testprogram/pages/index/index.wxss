@@ -1,0 +1,142 @@
+/**index.wxss**/
+.header {
+  margin: 90rpx 0 90rpx 50rpx;
+  border-bottom: 1px solid #070707;
+  text-align: center;
+  width: 650rpx;
+  height: 300rpx;
+  line-height: 450rpx;
+}
+
+.header image {
+  width: 200rpx;
+  height: 200rpx;
+}
+
+.content {
+  margin-left: 50rpx;
+  margin-bottom: 90rpx;
+}
+
+.content text {
+  display: block;
+  color: #070707;
+  margin-top: 40rpx;
+}
+
+.query-botton {
+  border-radius: 80rpx;
+  margin: 70rpx 50rpx;
+  font-size: 35rpx;
+}
+
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+.query{
+  border: 2rpx black solid;
+  width: 400rpx;
+  height: 200rpx;
+  text-align: center;
+  line-height: 200rpx;
+}
+.button {
+  width: 512rpx;
+  height: 128rpx;
+  margin: 40rpx;
+}
+
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+.questionnaire{
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  width: 100%;
+}
+.question-card {
+  font-size: 32rpx;
+  width: 80vw;
+  padding-top:20rpx;
+  margin-top: 5rpx;
+  background-color:#e2e2e2;
+}
+.question {
+  margin: 30rpx;
+}
+.radio-group {
+  width: 100%;
+  background-color: #eee;
+}
+.radio-group label {
+  display: block;
+  height: 86rpx;
+  line-height: 86rpx;
+  font-size: 32rpx;
+  border-bottom: 1rpx solid #e2e2e2;
+  box-sizing: border-box;
+  padding: 0 20rpx;
+}
+
+radio {
+  width: 38rpx;
+}
+.mark{
+  color: #f44242;
+}
+/* 单选框未选中 */
+radio .wx-radio-input {
+  width: 24rpx;
+  height: 24rpx;
+  border-radius: 50%;
+}
+
+
+/* 单选框选中后对勾样式 */
+radio .wx-radio-input.wx-radio-input-checked::before{
+  border-radius: 50%;
+  width: 44rpx;
+  height: 44rpx;
+  line-height: 44rpx;
+  text-align: center;
+  font-size: 26rpx;   
+  color:#fff;
+  background-color: #da2728;
+  border-color: #da2728;
+}
+.input-block{
+  font-size: 32rpx;
+  padding: 20rpx;
+  background-color: #eee;
+}
+.input-text{
+  border-bottom: 1px solid gray;
+  margin-top: 5rpx;
+}
+.answer{
+  margin-top: 20rpx;
+}
+.hint{
+  margin-left: 30rpx;
+  font-size: 20rpx;
+  /* word-break: break-all; */
+  color: #8b8b8b;
+}
+.order{
+  color: #8b8b8b;
+}
