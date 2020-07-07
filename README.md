@@ -4,12 +4,12 @@
 实习问卷搜集的微信小程序
 
 项目需求分析
-	项目要求能够绑定微信登录，完成实习信息的收集，并且能够保存所填写的信息。退出程序再次登录后能对上次填写的信息进行修改。并且能够上传图片文件。
-	核心用例包括：
-		微信登录，问卷信息填写，获取之前填写的信息，上传文件。
+​	项目要求能够绑定微信登录，完成实习信息的收集，并且能够保存所填写的信息。退出程序再次登录后能对上次填写的信息进行修改。并且能够上传图片文件。
+​	核心用例包括：
+​		微信登录，问卷信息填写，获取之前填写的信息，上传文件。
 项目开发技术
-	项目前端是基于微信小程序平台开发，主要使用了JavaScript语言，以及类型html的wxml。
-	项目后端使用了eclipse IDE, 基于java语言开发 ，使用tomcat与 springboot搭建服务提供后端API
+​	项目前端是基于微信小程序平台开发，主要使用了JavaScript语言，以及类型html的wxml。
+​	项目后端使用了eclipse IDE, 基于java语言开发 ，使用tomcat与 springboot搭建服务提供后端API
 API接口设计
 文件上传接口：
 Url: http://111.229.127.17:8080/upload/fileUpload?id=”{主码}”&filename=”{文件名称（带后缀）}”
@@ -40,3 +40,18 @@ Url: http://111.229.127.17:8080/upload/infoCheck?id=12356
 Id:主码
 
 小程序页面实现
+
+![1594126293566](C:\Users\worlf\AppData\Roaming\Typora\typora-user-images\1594126293566.png)
+
+
+
+![1594126312335](C:\Users\worlf\AppData\Roaming\Typora\typora-user-images\1594126312335.png)
+
+
+
+![1594126342423](C:\Users\worlf\AppData\Roaming\Typora\typora-user-images\1594126342423.png)
+
+
+
+![1594126364800](C:\Users\worlf\AppData\Roaming\Typora\typora-user-images\1594126364800.png)
+
